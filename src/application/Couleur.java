@@ -18,5 +18,9 @@ public class Couleur {
 		this.bleu = bleu;
 		
 	}
+	
+	public int getRouge() {
+		return this.rouge;
+	}
 
 }
