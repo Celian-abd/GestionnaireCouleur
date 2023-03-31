@@ -14,12 +14,30 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class ModelGestionnaire {
 
+	/*
+	 * Liste des couleurs presente
+	 */
 	private ArrayList<Couleur> couleurs;
+	/*
+	 * Chemin d'accès du sauvegarde
+	 */
     private static final String nomFichier = "sauvegardes.bin";
+    /*
+     * Index de la couleur sur lequel l'utilisateur a cliqué
+     */
     private int index;
+    /*
+     * Object pour mettre a jour le rectangle de couleur dans l'interface
+     */
     private SimpleObjectProperty<Color> currentColor;
+    /*
+     * Object pour mettre a jour le label correspondant a la couleur selectionné
+     */
     private SimpleStringProperty currentIndexLabel;
     
+    /*
+     * Constructeur du Gestionnaire de couleur avec chargement du fichier de sauvegarde dans la liste
+     */
     public ModelGestionnaire(){
         this.couleurs = new ArrayList<>();
         this.index = 0;
@@ -28,7 +46,7 @@ public class ModelGestionnaire {
         
         try {
             // Créer un flux d'entrée pour lire le fichier binaire
-            FileInputStream fichierEntree = new FileInputStream("chemin/vers/fichier/sauvegarde.bin");
+            FileInputStream fichierEntree = new FileInputStream("sauvegardes.bin");
 
             // Créer un flux d'entrée d'objet pour lire les objets sérialisés
             ObjectInputStream objetEntree = new ObjectInputStream(fichierEntree);
@@ -51,18 +69,30 @@ public class ModelGestionnaire {
 
     }
     
+    /*
+     * Renvoit la liste des couleurs enregistrer
+     */
     public ArrayList<Couleur> getCouleurs() {
         return this.couleurs;
     }
     
+    /*
+     * Ajoute la couleur a la collection
+     */
     public void addCouleur(Couleur couleur) {
     	this.couleurs.add(couleur);
     }
     
+    /*
+     * Renvoit l'indice sur lequel on est positionné
+     */
     public int getCurrentIndex() {
         return index;
     }
     
+    /*
+     * Mets a jour toutes les informations et notamment le label et le rectangle de couleur
+     */
     public void setCurrentIndex(int currentIndex) {
         if(currentIndex < this.couleurs.size()) {
             this.index = currentIndex;
