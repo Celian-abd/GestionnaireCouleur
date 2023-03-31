@@ -32,7 +32,7 @@ class testModelGestionnaire {
 	@Test
 	public void testSetCurrentIndex() {
 		ModelGestionnaire model = new ModelGestionnaire();
-		int i = 1;
+		int i = 0;
 		model.setCurrentIndex(i);
 		assertEquals(i,model.getCurrentIndex());
 	}

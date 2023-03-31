@@ -34,6 +34,13 @@ public class ModelGestionnaire {
         return index;
     }
     
-
+    public void setCurrentIndex(int currentIndex) {
+        if(currentIndex < this.couleurs.size()) {
+            this.index = currentIndex;
+            currentIndexLabel.set("Current Index: " + currentIndex);
+            Couleur c = this.couleurs.get(currentIndex);
+            currentColor.set(new Color(c.getRouge(), c.getVert(), c.getBleu()));
+        }
+    }
 
 }
