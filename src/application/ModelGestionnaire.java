@@ -45,8 +45,10 @@ public class ModelGestionnaire {
         this.currentIndexLabel = new SimpleStringProperty();
         
         try {
+        	String fileUrl = getClass().getResource(nomFichier).getPath();
+
             // Créer un flux d'entrée pour lire le fichier binaire
-            FileInputStream fichierEntree = new FileInputStream("sauvegardes.bin");
+            FileInputStream fichierEntree = new FileInputStream(fileUrl);
 
             // Créer un flux d'entrée d'objet pour lire les objets sérialisés
             ObjectInputStream objetEntree = new ObjectInputStream(fichierEntree);

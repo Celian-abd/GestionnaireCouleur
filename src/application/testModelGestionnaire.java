@@ -9,6 +9,9 @@ import org.junit.jupiter.api.Test;
 
 class testModelGestionnaire {
 
+	/*
+	 * Test de l'acceseur sur la liste des couleurs
+	 */
 	@Test
 	public void testGetsCouleurs() {
 		ModelGestionnaire model = new ModelGestionnaire();
@@ -16,6 +19,9 @@ class testModelGestionnaire {
 		assertEquals(true,returnedList instanceof List);
 	}
 	
+	/*
+	 * Test de l'ajout d'une couleur dans la collection
+	 */
 	@Test
 	public void testAddCouleur() {
 		ModelGestionnaire model = new ModelGestionnaire();
@@ -23,12 +29,18 @@ class testModelGestionnaire {
 		assertEquals(1,model.getCouleurs().size());
 	}
 	
+	/*
+	 * Test de l'accesseur sur l'index courant
+	 */
 	@Test
 	public void testGetCurrentIndex() {
 		ModelGestionnaire model = new ModelGestionnaire();
 		assertEquals(0,model.getCurrentIndex());
 	}
 	
+	/*
+	 * Test de la modification de l'index courrant
+	 */
 	@Test
 	public void testSetCurrentIndex() {
 		ModelGestionnaire model = new ModelGestionnaire();
