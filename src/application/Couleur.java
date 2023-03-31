@@ -9,7 +9,7 @@ public class Couleur {
 	private int bleu;
 	
 	public Couleur(String nom, int rouge,int vert,int bleu) throws IllegalArgumentException{
-		if((rouge<0 || rouge >255) || (vert<0 || vert>255) || (bleu<0 || bleu>0)){
+		if((rouge<0 || rouge >255) || (vert<0 || vert>255) || (bleu<0 || bleu>250)){
 			throw new IllegalArgumentException("Vous devez entrer une couleur RGB valide !");
 		}
 		this.nom = nom;
@@ -25,6 +25,10 @@ public class Couleur {
 	
 	public int getVert() {
 		return this.vert;
+	}
+	
+	public int getBleu() {
+		return this.bleu;
 	}
 
 }
