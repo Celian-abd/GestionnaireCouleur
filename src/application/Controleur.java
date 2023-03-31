@@ -1,6 +1,5 @@
 package application;
 
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -9,20 +8,37 @@ import javafx.scene.shape.Rectangle;
 public class Controleur {
 	
 	@FXML
-	private Button ajouter,supprimer,sauvegarde;
+	private Button ajouter;
+	
 	@FXML
-	private TextField field_nom,field_rouge,field_vert,field_bleu;
+	private Button sauvegarde;
+	
+	@FXML
+	private Button supprimer;
+	
+	@FXML
+	private TextField fnom;
+	
+	@FXML
+	private TextField frouge;
+	
+	@FXML
+	private TextField fvert;
+	
+	@FXML
+	private TextField fbleu;
 	
 	@FXML
 	private Rectangle rectangle;
 	
-	private ModelGestionnaire modele = new ModelGestionnaire();
+	private ModelGestionnaire modele = new ModelGestionnaire(); 
 	
-	public void ajouterCouleur(Event evt) {
-		int r = Integer.parseInt(field_rouge.getText());
-		int v = Integer.parseInt(field_vert.getText());
-		int b = Integer.parseInt(field_bleu.getText());
+	public void ajouterCouleur() {
+		int r = Integer.parseInt(frouge.getText());
+		int v = Integer.parseInt(fvert.getText());
+		int b = Integer.parseInt(fbleu.getText());
 		
-		this.modele.addCouleur(new Couleur(field_nom.getText(),r,v,b));		
+		this.modele.addCouleur(new Couleur(fnom.getText(),r,v,b));		
 	}
+	
 }

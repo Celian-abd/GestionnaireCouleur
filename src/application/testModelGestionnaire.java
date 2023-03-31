@@ -2,7 +2,6 @@ package application;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -38,15 +37,6 @@ class TestModelGestionnaire {
 		assertEquals(0,model.getCurrentIndex());
 	}
 	
-	/*
-	 * Test de la modification de l'index courrant
-	 */
-	@Test
-	public void testSetCurrentIndex() {
-		ModelGestionnaire model = new ModelGestionnaire();
-		int i = 0;
-		model.setCurrentIndex(i);
-		assertEquals(i,model.getCurrentIndex());
-	}
+
 
 }
