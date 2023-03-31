@@ -9,7 +9,7 @@ import javafx.scene.paint.Color;
 
 public class ModelGestionnaire {
 
-	private List<Couleur> couleurs;
+	private ArrayList<Couleur> couleurs;
     private static final String nomFichier = "sauvegardes.bin";
     private int index;
     private SimpleObjectProperty<Color> currentColor;
@@ -22,5 +22,8 @@ public class ModelGestionnaire {
         this.currentIndexLabel = new SimpleStringProperty();
     }
     
+    public ArrayList<Couleur> getCouleurs() {
+        return this.couleurs;
+    }
 
 }
