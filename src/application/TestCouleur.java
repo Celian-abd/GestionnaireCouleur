@@ -6,28 +6,26 @@ import org.junit.jupiter.api.Test;
 
 class TestCouleur {
 
+	public static Couleur couleur = new Couleur("RGB", 200, 200, 200);
+
 	@Test
 	public void testConstructeurCouleur() {
-		assertThrows(IllegalArgumentException.class, () -> new Couleur("Une couleur",0,0,300));
-	}
-	
-	@Test
-	public void testGetterRouge() {
-		Couleur rouge = new Couleur("Une couleur",200,0,0);
-		assertEquals(200,rouge.getRouge());
-	}
-	
-	@Test
-	public void testGetterVert() {
-		Couleur vert = new Couleur("Une couleur",0,200,0);
-		assertEquals(200,vert.getVert());
-	}
-	
-	@Test
-	public void testGetterBleu() {
-		Couleur bleu = new Couleur("Une couleur",0,0,200);
-		assertEquals(200,bleu.getBleu());
+		assertThrows(IllegalArgumentException.class, () -> new Couleur("Une couleur", 0, 0, 300));
 	}
 
+	@Test
+	public void testGetterRouge() {
+		assertEquals(200, couleur.getRouge());
+	}
+
+	@Test
+	public void testGetterVert() {
+		assertEquals(200, couleur.getVert());
+	}
+
+	@Test
+	public void testGetterBleu() {
+		assertEquals(200, couleur.getBleu());
+	}
 
 }
