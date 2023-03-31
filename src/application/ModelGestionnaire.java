@@ -29,5 +29,9 @@ public class ModelGestionnaire {
     public void addCouleur(Couleur couleur) {
     	this.couleurs.add(couleur);
     }
+    
+    public int getCurrentIndex() {
+        return index;
+    }
 
 }
