@@ -25,5 +25,9 @@ public class ModelGestionnaire {
     public ArrayList<Couleur> getCouleurs() {
         return this.couleurs;
     }
+    
+    public void addCouleur(Couleur couleur) {
+    	this.couleurs.add(couleur);
+    }
 
 }
