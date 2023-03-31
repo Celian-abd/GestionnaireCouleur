@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-class testModelGestionnaire {
+class TestModelGestionnaire {
 
 	/*
 	 * Test de l'acceseur sur la liste des couleurs
@@ -15,7 +15,7 @@ class testModelGestionnaire {
 	@Test
 	public void testGetsCouleurs() {
 		ModelGestionnaire model = new ModelGestionnaire();
-		ArrayList<Couleur> returnedList = model.getCouleurs();
+		List<Couleur> returnedList = model.getCouleurs();
 		assertEquals(true,returnedList instanceof List);
 	}
 	

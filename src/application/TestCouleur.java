@@ -9,7 +9,7 @@ class TestCouleur {
 	/**
 	 * Variable globale de test
 	 */
-	public static Couleur couleur = new Couleur("RGB", 200, 200, 200);
+	public static final Couleur couleur = new Couleur("RGB", 200, 200, 200);
 
 	/*
 	 * Test sur le constructeur de Couleur
@@ -42,5 +42,9 @@ class TestCouleur {
 	public void testGetterBleu() {
 		assertEquals(200, couleur.getBleu());
 	}
-
+	
+	@Test
+	public void testGetNom() {
+		assertEquals("RGB",couleur.getNom());
+	}
 }

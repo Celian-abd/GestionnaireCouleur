@@ -55,5 +55,13 @@ public class Couleur {
 	public int getBleu() {
 		return this.bleu;
 	}
+	
+	/**
+	 * Renvoit le nom de la couleur
+	 * @return
+	 */
+	public String getNom() {
+		return this.nom;
+	}
 
 }

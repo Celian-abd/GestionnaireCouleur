@@ -3,7 +3,6 @@ package application;
 import java.awt.Color;
 import java.io.EOFException;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
@@ -17,11 +16,11 @@ public class ModelGestionnaire {
 	/*
 	 * Liste des couleurs presente
 	 */
-	private ArrayList<Couleur> couleurs;
+	private List<Couleur> couleurs;
 	/*
 	 * Chemin d'accès du sauvegarde
 	 */
-    private static final String nomFichier = "sauvegardes.bin";
+    private static final String nom_fic = "sauvegardes.bin";
     /*
      * Index de la couleur sur lequel l'utilisateur a cliqué
      */
@@ -44,29 +43,37 @@ public class ModelGestionnaire {
         this.currentColor = new SimpleObjectProperty<>();
         this.currentIndexLabel = new SimpleStringProperty();
         
+        FileInputStream fichierEntree = null;
+        ObjectInputStream objetEntree = null;
         try {
-        	String fileUrl = getClass().getResource(nomFichier).getPath();
+        	String fileUrl = getClass().getResource(nom_fic).getPath();
 
             // Créer un flux d'entrée pour lire le fichier binaire
-            FileInputStream fichierEntree = new FileInputStream(fileUrl);
+            fichierEntree = new FileInputStream(fileUrl);
 
             // Créer un flux d'entrée d'objet pour lire les objets sérialisés
-            ObjectInputStream objetEntree = new ObjectInputStream(fichierEntree);
+            objetEntree = new ObjectInputStream(fichierEntree);
 
             // Lire tous les objets sérialisés à partir du fichier binaire
             Object objet;
             while ((objet = objetEntree.readObject()) != null) {
-                // Traiter l'objet lu
-                System.out.println(objet.toString());
+                this.couleurs.add((Couleur)objet);
             }
 
-            // Fermer les flux
-            objetEntree.close();
-            fichierEntree.close();
         } catch (EOFException e) {
             // La fin du fichier a été atteinte
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
+        }finally {
+            // Fermer les flux
+        	if(objetEntree != null) {
+        		try {
+                    objetEntree.close();
+                    fichierEntree.close();
+        		}catch(IOException e){
+        			System.out.println("Erreur lors de la fermeture du FileInputStream ou de ObjectInputStream!");
+        		}
+        	}
         }
 
     }
@@ -74,7 +81,7 @@ public class ModelGestionnaire {
     /*
      * Renvoit la liste des couleurs enregistrer
      */
-    public ArrayList<Couleur> getCouleurs() {
+    public List<Couleur> getCouleurs() {
         return this.couleurs;
     }
     
