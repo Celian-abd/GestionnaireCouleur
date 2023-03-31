@@ -15,5 +15,12 @@ class testModelGestionnaire {
 		ArrayList<Couleur> returnedList = model.getCouleurs();
 		assertEquals(true,returnedList instanceof List);
 	}
+	
+	@Test
+	public void testAddCouleur() {
+		ModelGestionnaire model = new ModelGestionnaire();
+		model.addCouleur(new Couleur("rouge",200,0,0));
+		assertEquals(1,model.getCouleurs().size());
+	}
 
 }
