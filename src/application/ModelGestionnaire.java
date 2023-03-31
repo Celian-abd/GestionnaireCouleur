@@ -1,11 +1,11 @@
 package application;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.scene.paint.Color;
 
 public class ModelGestionnaire {
 
@@ -33,5 +33,7 @@ public class ModelGestionnaire {
     public int getCurrentIndex() {
         return index;
     }
+    
+
 
 }
