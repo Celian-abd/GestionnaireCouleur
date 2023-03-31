@@ -22,6 +22,12 @@ class TestCouleur {
 		Couleur vert = new Couleur("Une couleur",0,200,0);
 		assertEquals(200,vert.getVert());
 	}
+	
+	@Test
+	public void testGetterBleu() {
+		Couleur bleu = new Couleur("Une couleur",0,0,200);
+		assertEquals(200,bleu.getBleu());
+	}
 
 
 }
