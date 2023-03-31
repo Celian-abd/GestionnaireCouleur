@@ -28,5 +28,13 @@ class testModelGestionnaire {
 		ModelGestionnaire model = new ModelGestionnaire();
 		assertEquals(0,model.getCurrentIndex());
 	}
+	
+	@Test
+	public void testSetCurrentIndex() {
+		ModelGestionnaire model = new ModelGestionnaire();
+		int i = 2;
+		model.setCurrentIndex(i);
+		assertEquals(i,model.getCurrentIndex());
+	}
 
 }
