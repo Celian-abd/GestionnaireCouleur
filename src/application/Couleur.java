@@ -22,5 +22,9 @@ public class Couleur {
 	public int getRouge() {
 		return this.rouge;
 	}
+	
+	public int getVert() {
+		return this.vert;
+	}
 
 }
