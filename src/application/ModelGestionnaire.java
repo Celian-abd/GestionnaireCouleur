@@ -1,6 +1,11 @@
 package application;
 
 import java.awt.Color;
+import java.io.EOFException;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,11 +20,35 @@ public class ModelGestionnaire {
     private SimpleObjectProperty<Color> currentColor;
     private SimpleStringProperty currentIndexLabel;
     
-    public ModelGestionnaire() {
+    public ModelGestionnaire(){
         this.couleurs = new ArrayList<>();
         this.index = 0;
         this.currentColor = new SimpleObjectProperty<>();
         this.currentIndexLabel = new SimpleStringProperty();
+        
+        try {
+            // Créer un flux d'entrée pour lire le fichier binaire
+            FileInputStream fichierEntree = new FileInputStream("chemin/vers/fichier/sauvegarde.bin");
+
+            // Créer un flux d'entrée d'objet pour lire les objets sérialisés
+            ObjectInputStream objetEntree = new ObjectInputStream(fichierEntree);
+
+            // Lire tous les objets sérialisés à partir du fichier binaire
+            Object objet;
+            while ((objet = objetEntree.readObject()) != null) {
+                // Traiter l'objet lu
+                System.out.println(objet.toString());
+            }
+
+            // Fermer les flux
+            objetEntree.close();
+            fichierEntree.close();
+        } catch (EOFException e) {
+            // La fin du fichier a été atteinte
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
     }
     
     public ArrayList<Couleur> getCouleurs() {
