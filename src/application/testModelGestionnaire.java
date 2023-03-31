@@ -22,5 +22,11 @@ class testModelGestionnaire {
 		model.addCouleur(new Couleur("rouge",200,0,0));
 		assertEquals(1,model.getCouleurs().size());
 	}
+	
+	@Test
+	public void testGetCurrentIndex() {
+		ModelGestionnaire model = new ModelGestionnaire();
+		assertEquals(0,model.getCurrentIndex());
+	}
 
 }
